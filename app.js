@@ -1,91 +1,47 @@
 
+//! game data
+
+const monsters = [
+  { name: 'Dracula', strength: 91, fearFactor: 81, killingPower: 86, horrorRating: 100 },
+  { name: 'The Beast', strength: 87, fearFactor: 77, killingPower: 82, horrorRating: 98 },
+  { name: 'Frankenstein', strength: 85, fearFactor: 75, killingPower: 82, horrorRating: 75 },
+  { name: 'Wolfman', strength: 78, fearFactor: 68, killingPower: 73, horrorRating: 70 },
+  { name: 'Death', strength: 99, fearFactor: 89, killingPower: 95, horrorRating: 100 },
+  { name: 'Devil Priest', strength: 92, fearFactor: 82, killingPower: 89, horrorRating: 92 },
+  { name: 'Fire Demon', strength: 71, fearFactor: 61, killingPower: 66, horrorRating: 77 },
+  { name: 'Cyclops', strength: 84, fearFactor: 74, killingPower: 79, horrorRating: 74 },
+  { name: 'Alien Creature', strength: 68, fearFactor: 58, killingPower: 65, horrorRating: 97 },
+  { name: 'The Mummy', strength: 86, fearFactor: 76, killingPower: 81, horrorRating: 80 },
+  { name: 'The Friend', strength: 81, fearFactor: 71, killingPower: 78, horrorRating: 80 },
+  { name: 'Dr.Syn', strength: 73, fearFactor: 63, killingPower: 68, horrorRating: 73 },
+  { name: 'Lizard Man', strength: 83, fearFactor: 73, killingPower: 80, horrorRating: 81 },
+  { name: 'Diablo', strength: 741, fearFactor: 64, killingPower: 69, horrorRating: 78 },
+  { name: 'The Sorcerer', strength: 75, fearFactor: 65, killingPower: 72, horrorRating: 83 },
+  { name: 'Godzilla', strength: 98, fearFactor: 88, killingPower: 95, horrorRating: 77 },
+  { name: 'King Kong', strength: 100, fearFactor: 90, killingPower: 97, horrorRating: 70 },
+  { name: 'The Freak', strength: 94, fearFactor: 84, killingPower: 91, horrorRating: 95 },
+  { name: 'The Thing', strength: 91, fearFactor: 81, killingPower: 88, horrorRating: 85 },
+  { name: 'Skeleton', strength: 65, fearFactor: 55, killingPower: 62, horrorRating: 92 },
+  { name: 'The Executioner', strength: 82, fearFactor: 72, killingPower: 77, horrorRating: 74 },
+
+];
 
 
-let monsters = [
-  
-    {
-      name : "Dracula",
-      power: 92
-     },
-    
-     {
-      name: "Wolfman",
-      power: '78 points' 
-     },
-    
-     {
-      name: "The Beast",
-      power: 87
-     }
-  
-  ];
-  
-  
-  
-  function monster(name, power) {
-    
+function shuffle(monsters) {
+  var j, x, i;
+  for (i = monsters.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = monsters[i];
+      monsters[i] = monsters[j];
+      monsters[j] = x;
   }
-     
-  
-  
-   console.log(monsters[1].name + ' ' +  monsters[1].power) 
-    
-  
-  
-  
-  
-  
-  
-  /**
-  
-    monster1:"Dracula", theme:"Monster", strength:91,
-    monster2:"Wolfman", theme:"Monster", strength:78,
-    monster3:"The Beast", theme:"Monster", strength:87
-  
-  
-  class Cards {
-      constructor(name, theme, strength) {
-          this._name = name;
-          this._theme = theme;
-          this._strength = strength;
-      }
-      
-      get name() {
-        return this._name;
-      }
-      get theme() {
-        return this._theme;
-      }
-      get strength() {
-        return this._strength; 
-      }
-          
-  }
-  
-  
-  
-  class Monster extends Cards {
-      constructor(name, theme, strength) {
-        super(name, theme, strength);
-        
-       }
-   
-  }
-  
-  const monster1 = new Monster('Dracula', 'Monster', 91);
-  const monster2 = new Monster('Wolfman', 'Monster', 78);
-  const monster3 = new Monster('The Beast', 'Monster', 87);
-  
-  
-  function go(mons1, mons2) {
-    if (mons1 > mons2) {
-      return mons1;
-   } else {
-     return mons2;
-   }
-    
-  }
-  
-  go(monster2.strength, monster3.strength);
-  
-  */
+  return monsters;
+}
+
+let humanDeck = shuffle([...monsters]); 
+let compDeck = humanDeck.splice(0, monsters.length >> 1); 
+
+console.log(humanDeck);
+//console.log(compDeck);
+
+
