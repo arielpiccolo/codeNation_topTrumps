@@ -25,6 +25,7 @@ const monsters = [
 
 ];
 
+//! sorting the cards / function that will shuffle the cards randomly
 
 function shuffle(monsters) {
   var j, x, i;
@@ -37,16 +38,20 @@ function shuffle(monsters) {
   return monsters;
 }
 
+//! lets create 2 cards deck with the same amount of cards
 let humanDeck = shuffle([...monsters]); 
 let compDeck = humanDeck.splice(0, monsters.length >> 1); 
 
+//! just testing here
 //console.log(humanDeck);
 //console.log(compDeck);
 
+
+//! this function will first create 2 variables that will store 1 random monster from its corresponding deck
 function play() {
   let randomMosterHumanDeck = humanDeck[Math.floor(Math.random() * humanDeck.length )];
   let randomMosterCompDeck = compDeck[Math.floor(Math.random() * compDeck.length)]; 
-
+    //! and then will check the values against each other and then log the winner to the console 
     if (randomMosterHumanDeck.strength > randomMosterCompDeck.strength) {
       console.log(`${randomMosterHumanDeck.name} wins with ${randomMosterHumanDeck.strength} points`); 
     } else if (randomMosterHumanDeck.strength < randomMosterCompDeck.strength) {
@@ -56,4 +61,8 @@ function play() {
     }
 }
  
+
+
+
+
 play();
