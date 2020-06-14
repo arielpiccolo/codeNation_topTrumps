@@ -22,7 +22,6 @@ const monsters = [
   { name: 'The Freak', strength: 94, fearFactor: 84, killingPower: 91, horrorRating: 95 },
   { name: 'The Thing', strength: 91, fearFactor: 81, killingPower: 88, horrorRating: 85 },
   { name: 'Skeleton', strength: 65, fearFactor: 55, killingPower: 62, horrorRating: 92 },
-  { name: 'The Executioner', strength: 82, fearFactor: 72, killingPower: 77, horrorRating: 74 },
 
 ];
 
@@ -41,7 +40,20 @@ function shuffle(monsters) {
 let humanDeck = shuffle([...monsters]); 
 let compDeck = humanDeck.splice(0, monsters.length >> 1); 
 
-console.log(humanDeck);
+//console.log(humanDeck);
 //console.log(compDeck);
 
+function play() {
+  let randomMosterHumanDeck = humanDeck[Math.floor(Math.random() * humanDeck.length )];
+  let randomMosterCompDeck = compDeck[Math.floor(Math.random() * compDeck.length)]; 
 
+    if (randomMosterHumanDeck.strength > randomMosterCompDeck.strength) {
+      console.log(`${randomMosterHumanDeck.name} wins with ${randomMosterHumanDeck.strength} points`); 
+    } else if (randomMosterHumanDeck.strength < randomMosterCompDeck.strength) {
+      console.log(`${randomMosterCompDeck.name} wins with ${randomMosterCompDeck.strength} points`);
+    } else {
+      console.log("Its a Draw!, both cards will wait in Limbo and whoever wins the next rounds will also wins the cards in Limbo");
+    }
+}
+ 
+play();
