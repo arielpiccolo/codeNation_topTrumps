@@ -54,6 +54,7 @@ function play() {
     //! and then will check the values against each other and then log the winner to the console 
     if (randomMosterHumanDeck.strength > randomMosterCompDeck.strength) {
       console.log(`${randomMosterHumanDeck.name} wins with ${randomMosterHumanDeck.strength} points`); 
+      
     } else if (randomMosterHumanDeck.strength < randomMosterCompDeck.strength) {
       console.log(`${randomMosterCompDeck.name} wins with ${randomMosterCompDeck.strength} points`);
     } else {
