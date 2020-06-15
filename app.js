@@ -43,27 +43,52 @@ let humanDeck = shuffle([...monsters]);
 let compDeck = humanDeck.splice(0, monsters.length >> 1); 
 
 //! just testing here
-//console.log(humanDeck);
-//console.log(compDeck);
+console.log(`humans cards ${humanDeck.length}`);
+console.log(`computer cards ${compDeck.length}`);
+// upto this point human and computer both have 10 cards each
 
 
-//! this function will first create 2 variables that will store 1 random monster from its corresponding deck
+
+
+
+//!  first create 2 variables that will store 1 random monster from its corresponding deck
+
+let randomMosterHumanCard = humanDeck[Math.floor(Math.random() * humanDeck.length )];
+let randomMosterCompCard = compDeck[Math.floor(Math.random() * compDeck.length)];
+
+
+//more testing here
+console.log(randomMosterHumanCard);
+console.log(randomMosterCompCard);
+
+
+
 function play() {
-  let randomMosterHumanDeck = humanDeck[Math.floor(Math.random() * humanDeck.length )];
-  let randomMosterCompDeck = compDeck[Math.floor(Math.random() * compDeck.length)]; 
+ 
     //! and then will check the values against each other and then log the winner to the console 
-    if (randomMosterHumanDeck.strength > randomMosterCompDeck.strength) {
-      console.log(`${randomMosterHumanDeck.name} wins with ${randomMosterHumanDeck.strength} points`); 
+    
+    if (randomMosterHumanCard.strength > randomMosterCompCard.strength) {
+      console.log(`${randomMosterHumanCard.name} wins with ${randomMosterHumanCard.strength} points`); 
+      compDeck.pop(randomMosterCompCard);
+      humanDeck.push(randomMosterCompCard);
+      console.log(`human has ${humanDeck.length} cards`);
+      console.log(`computer has  ${compDeck.length} cards`);
       
-    } else if (randomMosterHumanDeck.strength < randomMosterCompDeck.strength) {
-      console.log(`${randomMosterCompDeck.name} wins with ${randomMosterCompDeck.strength} points`);
+            
+    } else if (randomMosterHumanCard.strength < randomMosterCompCard.strength) {
+      console.log(`${randomMosterCompCard.name} wins with ${randomMosterCompCard.strength} points`);
+      humanDeck.pop(randomMosterHumanCard);
+      compDeck.push(randomMosterHumanCard);
+      console.log(`human has ${humanDeck.length} cards`);
+      console.log(`computer has  ${compDeck.length} cards`);
     } else {
       console.log("Its a Draw!, both cards will wait in Limbo and whoever wins the next rounds will also wins the cards in Limbo");
+ 
     }
 }
  
-
-
-
-
 play();
+
+
+
+
