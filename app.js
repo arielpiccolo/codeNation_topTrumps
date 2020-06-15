@@ -67,6 +67,8 @@ function play() {
  
     //! and then will check the values against each other and then log the winner to the console 
     
+    //todo: create a while loop to play until iether one of the players runs out of cards
+    
     if (randomMosterHumanCard.strength > randomMosterCompCard.strength) {
       console.log(`${randomMosterHumanCard.name} wins with ${randomMosterHumanCard.strength} points`); 
       compDeck.pop(randomMosterCompCard);
@@ -83,7 +85,7 @@ function play() {
       console.log(`computer has  ${compDeck.length} cards`);
     } else {
       console.log("Its a Draw!, both cards will wait in Limbo and whoever wins the next rounds will also wins the cards in Limbo");
- 
+ 	//todo: complete what happen when there is a draw
     }
 }
  
